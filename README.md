@@ -1,7 +1,7 @@
 # Real Time Bus Tracker
 
 # Description
-This program shows a live view of the bus
+This program shows a live view of the current buses that are active according to MBTA System. When the program is launched, the initial place is shown, leaving the trace of the prior positions while it is moving from one point to another.
 
 # Installation
 Download the files shown in this repository and save them within the same folder. In order to launch the program from your
@@ -14,7 +14,7 @@ mouse for adjusting the zoom. Every 15 seconds the markers of the bus position w
 For any additional comments, please contact me via e-mail: sebasayala2_6@hotmail.com
 
 # Roadmap
-Replace the current API information with a local one, either from San Diego MTS or a nearby transportation system.
+Replace the current transport information with a local one, either from San Diego MTS or a nearby transportation system.
 
 # License information
 
