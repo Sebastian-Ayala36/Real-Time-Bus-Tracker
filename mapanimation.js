@@ -1,24 +1,22 @@
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2ViYXN0aWFuLWF5YWxhMzYiLCJhIjoiY2tva3V4M2F2MGZxajJwbzdoeTNkdjdjZCJ9.X5ICzEbVe82-llwPx_kW6w';
+mapboxgl.accessToken = 'pk.eyJ1IjoiZXBhcnJhMzMiLCJhIjoiY2tvbmFvaDA2MDhuMjJvbGZsZ2kyMzhqZyJ9.MqYRnBgO1jPJwJHX8O0NiQ'; 
 var markers = [];
 
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/navigation-night-v1',
-    //'mapbox://styles/mapbox/streets-v11',
     center: [-71.104081,42.365554],
-    zoom: 15
+    zoom: 14
 });
 
 async function addMarkers(){
     var locations = await getBusLocations();
     locations.forEach(function(bus){
         var marker = getMarker(bus.id);
-        if(marker){
+        if(!(marker === undefined)){
             moveMarker(marker, bus);
         }
         else{
-    
-           addMarker(bus);
+            addMarker(bus);
         }
     });
     console.log(new Date());
@@ -33,14 +31,16 @@ async function getBusLocations(){
 }
 
 function addMarker(bus){
-    var marker = new mapboxgl.Marker()
+    var marker = {markerElement: new mapboxgl.Marker()
         .setLngLat([bus.attributes.longitude, bus.attributes.latitude])
-        .addTo(map);
+        .addTo(map),
+        id: bus.id
+    }
     markers.push(marker);
 }
 
 function moveMarker(marker, bus){
-    marker.setLngLat([bus.attributes.longitud, bus.attributes.latitude]);
+    marker.markerElement.setLngLat([bus.attributes.longitude, bus.attributes.latitude]);
 }
 
 function getMarker(id){
@@ -49,7 +49,5 @@ function getMarker(id){
     });
     return marker;
 }
-
-
 
 addMarkers();
