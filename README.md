@@ -1,7 +1,7 @@
 # Real Time Bus Tracker
 
 # Description
-This program shows a live view of the current buses that are active according to MBTA System. When the program is launched, the initial place is shown, leaving the trace of the prior positions while it is moving from one point to another.
+This program shows a live view of the current buses that are active according to MBTA System. When the program is launched, the initial place is shown with a marker, and the map will automatically update the marker's position in order to keep track of the route for each bus.
 
 # Installation
 Download the files shown in this repository and save them within the same folder. In order to launch the program from your
